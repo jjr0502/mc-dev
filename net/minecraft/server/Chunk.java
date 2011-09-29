@@ -61,22 +61,11 @@ public class Chunk {
 
         int k = abyte.length;
 
-        world.getClass();
-        NibbleArray nibblearray2 = new NibbleArray(k, 7);
-
-        this.g = nibblearray2;
-
-        k = abyte.length;
-        world.getClass();
-        NibbleArray nibblearray2 = new NibbleArray(k, 7);
-
-        this.h = nibblearray2;
-
-        k = abyte.length;
-        world.getClass();
-        NibbleArray nibblearray2 = new NibbleArray(k, 7);
-
-        this.i = nibblearray2;
+        // Craftbukkit start - FIX THE DECOMPILER!
+        this.g = new NibbleArray(k, 7);
+        this.h = new NibbleArray(k, 7);
+        this.i = new NibbleArray(k, 7);
+        // Craftbukkit end
     }
 
     public boolean a(int i, int j) {

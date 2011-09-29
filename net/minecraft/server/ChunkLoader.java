@@ -170,22 +170,16 @@ public class ChunkLoader implements IChunkLoader {
 
         byte[] k003 = nbttagcompound.j("Data");
 
-        world.getClass();
-        NibbleArray nibblearray5 = new NibbleArray(k003, 7);
-
-        chunk.g = nibblearray5;
+        // CraftBukkit start - fix decompiler
+        chunk.g = new NibbleArray(k003, 7);
 
         k003 = nbttagcompound.j("SkyLight");
-        world.getClass();
-        NibbleArray nibblearray5 = new NibbleArray(k003, 7);
 
-        chunk.h = nibblearray5;
+        chunk.h = new NibbleArray(k003, 7);
 
         k003 = nbttagcompound.j("BlockLight");
-        world.getClass();
-        NibbleArray nibblearray5 = new NibbleArray(k003, 7);
 
-        chunk.i = nibblearray5;
+        chunk.i = new NibbleArray(k003, 7);
         chunk.heightMap = nbttagcompound.j("HeightMap");
         chunk.done = nbttagcompound.m("TerrainPopulated");
         int k;
@@ -193,32 +187,27 @@ public class ChunkLoader implements IChunkLoader {
         if (!chunk.g.a()) {
 
             k = chunk.b.length;
-            world.getClass();
-            NibbleArray nibblearray5 = new NibbleArray(k, 7);
 
-            chunk.g = nibblearray5;
+            chunk.g = new NibbleArray(k, 7);
         }
 
         if (chunk.heightMap == null || !chunk.h.a()) {
             chunk.heightMap = new byte[256];
 
             k = chunk.b.length;
-            world.getClass();
-            NibbleArray nibblearray5 = new NibbleArray(k, 7);
 
-            chunk.h = nibblearray5;
+            chunk.h = new NibbleArray(k, 7);
             chunk.initLighting();
         }
 
         if (!chunk.i.a()) {
 
             k = chunk.b.length;
-            world.getClass();
-            NibbleArray nibblearray5 = new NibbleArray(k, 7);
 
-            chunk.i = nibblearray5;
+            chunk.i = new NibbleArray(k, 7);
             chunk.a();
         }
+        // CraftBukkit end
 
         NBTTagList nbttaglist = nbttagcompound.l("Entities");
 
