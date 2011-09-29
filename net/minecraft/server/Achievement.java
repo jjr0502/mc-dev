@@ -24,11 +24,11 @@ public class Achievement extends Statistic {
         this.a = j;
         this.b = k;
         if (j < AchievementList.a) {
-            a = j;
+            //a = j; // CraftBukkit - remove assignment
         }
 
         if (k < AchievementList.b) {
-            b = k;
+            //b = k; // CraftBukkit - remove assignment
         }
 
         if (j > AchievementList.c) {
