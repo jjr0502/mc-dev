@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet8UpdateHealth extends Packet {
 
@@ -17,13 +18,13 @@ public class Packet8UpdateHealth extends Packet {
         this.c = f;
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException { // CraftBukkit - add throws declaration
         this.a = datainputstream.readShort();
         this.b = datainputstream.readShort();
         this.c = datainputstream.readFloat();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException { // CraftBukkit - add throws declaration
         dataoutputstream.writeShort(this.a);
         dataoutputstream.writeShort(this.b);
         dataoutputstream.writeFloat(this.c);

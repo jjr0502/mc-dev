@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInput;
 import java.io.DataOutput;
+import java.io.IOException;
 
 public class NBTTagLong extends NBTBase {
 
@@ -13,11 +14,11 @@ public class NBTTagLong extends NBTBase {
         this.a = i;
     }
 
-    void a(DataOutput dataoutput) {
+    void a(DataOutput dataoutput) throws IOException { // CraftBukkit - add throws declaration
         dataoutput.writeLong(this.a);
     }
 
-    void a(DataInput datainput) {
+    void a(DataInput datainput) throws IOException { // CraftBukkit - add throws declaration
         this.a = datainput.readLong();
     }
 

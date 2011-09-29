@@ -1,5 +1,6 @@
 package net.minecraft.server;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -20,7 +21,7 @@ public class NetworkListenThread {
     public MinecraftServer c;
     private HashMap i = new HashMap();
 
-    public NetworkListenThread(MinecraftServer minecraftserver, InetAddress inetaddress, int i) {
+    public NetworkListenThread(MinecraftServer minecraftserver, InetAddress inetaddress, int i) throws IOException { // CraftBukkit - add throws declaration
         this.c = minecraftserver;
         this.d = new ServerSocket(i, 0, inetaddress);
         this.d.setPerformancePreferences(0, 2, 1);

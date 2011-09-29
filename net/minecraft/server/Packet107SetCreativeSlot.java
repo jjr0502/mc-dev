@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet107SetCreativeSlot extends Packet {
 
@@ -16,14 +17,14 @@ public class Packet107SetCreativeSlot extends Packet {
         nethandler.a(this);
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException { // CraftBukkit - add throws declaration
         this.a = datainputstream.readShort();
         this.b = datainputstream.readShort();
         this.c = datainputstream.readShort();
         this.d = datainputstream.readShort();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException { // CraftBukkit - add throws declaration
         dataoutputstream.writeShort(this.a);
         dataoutputstream.writeShort(this.b);
         dataoutputstream.writeShort(this.c);

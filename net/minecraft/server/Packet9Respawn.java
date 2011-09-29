@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet9Respawn extends Packet {
 
@@ -25,7 +26,7 @@ public class Packet9Respawn extends Packet {
         nethandler.a(this);
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException { // CraftBukkit - add throws declaration
         this.b = datainputstream.readByte();
         this.c = datainputstream.readByte();
         this.e = datainputstream.readByte();
@@ -33,7 +34,7 @@ public class Packet9Respawn extends Packet {
         this.a = datainputstream.readLong();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException { // CraftBukkit - add throws declaration
         dataoutputstream.writeByte(this.b);
         dataoutputstream.writeByte(this.c);
         dataoutputstream.writeByte(this.e);

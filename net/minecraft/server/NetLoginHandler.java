@@ -1,5 +1,6 @@
 package net.minecraft.server;
 
+import java.io.IOException;
 import java.net.Socket;
 import java.util.Iterator;
 import java.util.Random;
@@ -17,7 +18,7 @@ public class NetLoginHandler extends NetHandler {
     private Packet1Login h = null;
     private String i = "";
 
-    public NetLoginHandler(MinecraftServer minecraftserver, Socket socket, String s) {
+    public NetLoginHandler(MinecraftServer minecraftserver, Socket socket, String s) throws IOException { // CraftBukkit - add throws declaration
         this.server = minecraftserver;
         this.networkManager = new NetworkManager(socket, s, this);
         this.networkManager.f = 0;

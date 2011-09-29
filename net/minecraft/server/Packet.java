@@ -56,7 +56,7 @@ public abstract class Packet {
         return ((Integer) b.get(this.getClass())).intValue();
     }
 
-    public static Packet a(DataInputStream datainputstream, boolean flag) {
+    public static Packet a(DataInputStream datainputstream, boolean flag) throws IOException { // CraftBukkit - add throws declaration
         boolean flag1 = false;
         Packet packet = null;
 
@@ -99,12 +99,12 @@ public abstract class Packet {
         return packet;
     }
 
-    public static void a(Packet packet, DataOutputStream dataoutputstream) {
+    public static void a(Packet packet, DataOutputStream dataoutputstream) throws IOException { // CraftBukkit - add throws declaration
         dataoutputstream.write(packet.b());
         packet.a(dataoutputstream);
     }
 
-    public static void a(String s, DataOutputStream dataoutputstream) {
+    public static void a(String s, DataOutputStream dataoutputstream) throws IOException { // CraftBukkit - add throws declaration
         if (s.length() > 32767) {
             throw new IOException("String too big");
         } else {
@@ -113,7 +113,7 @@ public abstract class Packet {
         }
     }
 
-    public static String a(DataInputStream datainputstream, int i) {
+    public static String a(DataInputStream datainputstream, int i) throws IOException { // CraftBukkit - add throws declaration
         short short1 = datainputstream.readShort();
 
         if (short1 > i) {
@@ -131,9 +131,9 @@ public abstract class Packet {
         }
     }
 
-    public abstract void a(DataInputStream datainputstream);
+    public abstract void a(DataInputStream datainputstream) throws IOException; // CraftBukkit - add throws declaration
 
-    public abstract void a(DataOutputStream dataoutputstream);
+    public abstract void a(DataOutputStream dataoutputstream) throws IOException; // CraftBukkit - add throws declaration
 
     public abstract void a(NetHandler nethandler);
 

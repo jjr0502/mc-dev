@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet255KickDisconnect extends Packet {
 
@@ -13,11 +14,11 @@ public class Packet255KickDisconnect extends Packet {
         this.a = s;
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException { // CraftBukkit - add throws declaration
         this.a = a(datainputstream, 100);
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException { // CraftBukkit - add throws declaration
         a(this.a, dataoutputstream);
     }
 

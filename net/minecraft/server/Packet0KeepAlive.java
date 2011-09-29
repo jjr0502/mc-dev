@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet0KeepAlive extends Packet {
 
@@ -17,11 +18,11 @@ public class Packet0KeepAlive extends Packet {
         nethandler.a(this);
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException { // CraftBukkit - add throws declaration
         this.a = datainputstream.readInt();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException { // CraftBukkit - add throws declaration
         dataoutputstream.writeInt(this.a);
     }
 

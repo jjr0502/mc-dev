@@ -5,6 +5,7 @@ import java.io.DataInputStream;
 import java.io.DataOutput;
 import java.io.DataOutputStream;
 import java.io.File;
+import java.io.IOException;
 
 public class ChunkRegionLoader implements IChunkLoader {
 
@@ -14,7 +15,7 @@ public class ChunkRegionLoader implements IChunkLoader {
         this.a = file1;
     }
 
-    public Chunk a(World world, int i, int j) {
+    public Chunk a(World world, int i, int j) throws IOException { // CraftBukkit - add throws declaration
         DataInputStream datainputstream = RegionFileCache.c(this.a, i, j);
 
         if (datainputstream != null) {
