@@ -17,16 +17,18 @@ public class Statistic {
     public static Counter j = new TimeCounter();
     public static Counter k = new DistancesCounter();
 
-    public Statistic(int i, String s, Counter counter) {
+     // CraftBukkit start - fix naming clash
+    public Statistic(int integer, String s, Counter counter) {
         this.g = false;
-        this.e = i;
+        this.e = integer;
         this.f = s;
         this.a = counter;
     }
 
-    public Statistic(int i, String s) {
-        this(i, s, i);
+    public Statistic(int integer, String s) {
+        this(integer, s, i);
     }
+    // CraftBukkit end
 
     public Statistic e() {
         this.g = true;
