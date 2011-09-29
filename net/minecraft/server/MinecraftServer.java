@@ -4,6 +4,7 @@ import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -40,7 +41,7 @@ public class MinecraftServer implements Runnable, ICommandListener {
         new ThreadSleepForever(this);
     }
 
-    private boolean init() {
+    private boolean init() throws UnknownHostException { // CraftBukkit - add throws declaration
         this.consoleCommandHandler = new ConsoleCommandHandler(this);
         ThreadCommandReader threadcommandreader = new ThreadCommandReader(this);
 
