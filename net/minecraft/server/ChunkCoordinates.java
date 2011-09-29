@@ -34,6 +34,15 @@ public class ChunkCoordinates implements Comparable {
         return this.x + this.z << 8 + this.y << 16;
     }
 
+    // CraftBukkit start - interface requires an Object as the paramter
+    public int compareTo(Object chunkcoordinates) {
+        if (!(chunkcoordinates instanceof ChunkCoordinates)) {
+            throw new IllegalArgumentException();
+        }
+        return compareTo((ChunkCoordinates) chunkcoordinates);
+    }
+    // CraftBukkit end
+
     public int compareTo(ChunkCoordinates chunkcoordinates) {
         return this.y == chunkcoordinates.y ? (this.z == chunkcoordinates.z ? this.x - chunkcoordinates.x : this.z - chunkcoordinates.z) : this.y - chunkcoordinates.y;
     }

@@ -22,6 +22,15 @@ class ChunkFile implements Comparable {
         }
     }
 
+    // CraftBukkit start - interface requires an Object as the paramter
+    public int compareTo(Object chunkfile) {
+        if (!(chunkfile instanceof ChunkFile)) {
+            throw new IllegalArgumentException();
+        }
+        return compareTo((ChunkFile) chunkfile);
+    }
+    // CraftBukkit end
+
     public int compareTo(ChunkFile chunkfile) {
         int i = this.b >> 5;
         int j = chunkfile.b >> 5;

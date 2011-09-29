@@ -37,6 +37,15 @@ public class NextTickListEntry implements Comparable {
         return this;
     }
 
+    // CraftBukkit start - interface requires object parameter
+    public int compareTo(Object nextticklistentry) {
+        if (!(nextticklistentry instanceof NextTickListEntry)) {
+            throw new IllegalArgumentException();
+        }
+        return compareTo((NextTickListEntry) nextticklistentry);
+    }
+    // CraftBukkit end
+
     public int compareTo(NextTickListEntry nextticklistentry) {
         return this.e < nextticklistentry.e ? -1 : (this.e > nextticklistentry.e ? 1 : (this.g < nextticklistentry.g ? -1 : (this.g > nextticklistentry.g ? 1 : 0)));
     }
